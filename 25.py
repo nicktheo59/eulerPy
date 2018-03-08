@@ -1,0 +1,15 @@
+fibs = {0: 0, 1: 1}
+def fib(n):
+    if n in fibs: return fibs[n]
+    if n % 2 == 0:
+        fibs[n] = ((2 * fib((n / 2) - 1)) + fib(n / 2)) * fib(n / 2)
+        return fibs[n]
+    else:
+        fibs[n] = (fib((n - 1) / 2) ** 2) + (fib((n+1) / 2) ** 2)
+        return fibs[n]
+        
+for number in range(1,10000):
+	thing = list( str( fib( number ) ) )
+	if len( thing ) >= 1000:
+		print number
+		break
